@@ -1,5 +1,6 @@
 var express = require("express");
 var path = require("path");
+var opn = require("opn");
 
 const app = express();
 const port = 8000;
@@ -33,6 +34,9 @@ app.get("/drones", function(req, res) {
 app.get("*", function(req, res) {
   res.sendfile(path.resolve(__dirname + "/public/views/404.html"));
 });
+
 app.listen(port, function() {
-  console.log("listening on port " + port);
+  console.log("Listening on port " + port + ".");
+  0;
+  opn("http://localhost:" + port);
 });
